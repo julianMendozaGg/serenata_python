@@ -8,21 +8,26 @@ class Personal():
         self.azarInst = 0  # Este "azarInst" nos ayuda a escoger instrumentos al azar de listaEquipo
 
         # Este "numero" nos ayuda a saber la cantidad de musicos
-        self.numero = Operacion().generarNumeroMusicos()
+        self.numero = Operacion()
         self.listaEquipo = EquipoMaterial().alistarEquipo()
-        self.equipoEscogido=[]
+        self.equipoEscogido = []
         super().__init__()
 
+    # Como el numero de musicos es aleatorio recorremos un for del tamaño del numero de musicos(0-9)
+    # y aleatoriamente asignamos instrumentos con azarInst
+
     def asignarInstrumentos(self):
-        for i in range (self.numero):
-            self.azarInst=Operacion().escogerInstrumento()
-            self.equipoEscogido.insert(i,self.listaEquipo[self.azarInst])
-        
+        for i in range(self.numero.generarNumeroMusicos()):
+            self.azarInst = Operacion().escogerInstrumento()
+            self.equipoEscogido.insert(i, self.listaEquipo[self.azarInst])
+
         return self.equipoEscogido
 
+    # Este metodo imprime la lista obtenida en asignarInstrumentos() imprimiendo los metodos de preparar
+    # y tocar
+
     def compadreEmpiezeATocar(self):
-        self.listaMetodo=self.asignarInstrumentos()
-        for i in range(len(self.asignarInstrumentos())):
+        self.listaMetodo = self.asignarInstrumentos()
+        for i in range(len(self.listaMetodo)):
             print(self.listaMetodo[i].prepararInstrumento())
             print(self.listaMetodo[i].tocarInstrumento())
-            

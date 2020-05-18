@@ -1,4 +1,6 @@
 from Instrumento import *
+
+#Acordeon hereda de instrumento e iplementa sus metodos abstractos
 class Acordeon (Instrumento):
 
     def __init__(self):

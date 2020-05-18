@@ -1,6 +1,7 @@
 from Instrumento import *
 
 
+#Guitarra hereda de instrumento e iplementa sus metodos abstractos
 class Guitarra(Instrumento):
 
     def __init__(self):
